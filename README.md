@@ -61,3 +61,29 @@ It is a bit laborious.
 5. Create the host Web page (*index.html*)
 6. Create the *main.ts* file (*bootstrapper)*
 
+## Modules
+
+- Angular1 Modules
+- Typescript Modules
+- ES 2015 Modules
+- Angular2 Uses ES 2015 Modules
+
+### ES 2015 Modules
+
+#### Export
+
+```typescript
+// product.ts
+
+export class Product {
+  
+}
+```
+
+#### Import
+
+```typescript
+// product-list.ts
+
+import {Product} from './product'
+```
