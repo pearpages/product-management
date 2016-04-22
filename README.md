@@ -41,3 +41,12 @@ Component = Template + Class + Metadata
   - Typescript type definition files (*.d.ts)
 - Class-based object-orientation
 
+## IDEs for Typescript
+
+- Visual Studio
+- Visual Studio Code
+- WebStorm
+- Atom
+- Eclipse
+- ...
+
