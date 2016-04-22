@@ -148,3 +148,27 @@ import {AppComponent} from './app.component';
 
 bootstrap(AppComponent);
 ```
+
+## Templates
+
+- Inline Template
+- Linked Template
+
+```Typescript
+template:
+"<h1>{{pageTitle}}</h1>"
+```
+
+```Typescript
+template: `
+<div>
+  <h1>{{pageTitle}}</h1>
+  <div>
+    My First Component
+  </div>
+</div>
+```
+
+```Typescript
+  templateUrl: 'product-list.component.html'
+```
