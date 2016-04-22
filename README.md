@@ -160,6 +160,7 @@ template:
 ```
 
 ```Typescript
+// ES 2015 back tick
 template: `
 <div>
   <h1>{{pageTitle}}</h1>
