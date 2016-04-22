@@ -87,3 +87,64 @@ export class Product {
 
 import {Product} from './product'
 ```
+
+## Components
+
+```
+Component = Template + Class + Metadata
+```
+
+Once we give the *@Component* metadata we get a Component.
+
+> Decorator: A function that adds *metadata* to a class, its members, or its method arguments.
+
+```typescript
+import {Component} from 'angular2/core';
+
+@Component({
+    selector: 'pm-app',
+    template: `
+    <div><h1>{{pageTitle}}</h1>
+        <div>My First Component</div>
+    </div>
+    `
+})
+export class AppComponent {
+    pageTitle: string = 'Product Management';
+}
+```
+
+```typescript
+// main.ts
+import {bootstrap} from 'angular2/platform/browser';
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent);
+```
+
+```html
+<!-- indexx.html -->
+
+<!-- System.import('app/main'); -->
+
+<body>
+  <pm-app>Loading App ...</pm-app>
+</body>
+```
+
+## Angular is Modular
+
+- core
+- animate
+- http
+- router
+
+## Bootstrapping
+
+```typescript
+// main.ts
+import {bootstrap} from 'angular2/platform/browser';
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent);
+```
