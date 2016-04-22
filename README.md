@@ -14,3 +14,13 @@ Component = Template + Class + Metadata
   - Product Detail Component
     - Star Component
 
+## Concepts
+
+- Components
+  - Nested Components
+- Templates, Interpolation, and Directives
+- Data Binding & Pipes
+- Services and Dependency Injection
+- Retrieving Data Using Http
+- Navigation and Routing
+
