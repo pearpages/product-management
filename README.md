@@ -195,3 +195,15 @@ export class AppComponent {
     pageTitle: string = 'Product Management';
 }
 ```
+
+## Binding
+
+> Coordinates communication between the component's class and its template and often involves passing data.
+
+## Directive
+
+> Custom HTML element or attribute used to power up and extend our HTML.
+
+- Custom
+- Built-in (*ngIf, *ngFor)
+
