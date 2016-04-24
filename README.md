@@ -170,6 +170,28 @@ template: `
 </div>
 ```
 
-```Typescript
+```typescript
   templateUrl: 'product-list.component.html'
+```
+
+## Include Component
+
+```typescript
+import {Component} from 'angular2/core';
+// 1
+import {ProductListComponent} from './products/product-list.component'
+
+@Component({
+    selector: 'pm-app',
+    template: `
+    <div><h1>{{pageTitle}}</h1>
+        <pm-products></pm-products>
+    </div>
+    `,
+    // 2
+    directives: [ProductListComponent]
+})
+export class AppComponent {
+    pageTitle: string = 'Product Management';
+}
 ```
