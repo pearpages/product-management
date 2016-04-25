@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit{
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
-    listFilter: string = 'cart';
+    listFilter: string = null;
     products: IProduct[] = [{
         "productId": 1,
         "productName": "Leaf Rake",
