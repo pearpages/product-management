@@ -335,6 +335,7 @@ export class ProductFilterPipe implements PipeTransform {
 ```
 
 ```html
+<!-- listFilter is the variable from the class that has two way data binding -->
 <tr *ngFor = '#product of products | productFilter:listFilter'>
 ```
 
