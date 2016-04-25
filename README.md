@@ -257,3 +257,32 @@ export class ProductListComponent {
 <td><img [src]="product.imageUrl" [title]="product.productName" [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
 ```
 
+## Event Binding
+
+### Template
+
+```html
+<button (click)='toggleImage()' class="btn btn-primary">{{showImage ? 'Hide Images' : 'Show Images'}}</button>
+
+<!-- ... -->
+
+<!-- check the ngIf -->
+<td><img *ngIf='showImage' [src]="product.imageUrl" [title]="product.productName" [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+
+<!-- ... -->
+``` 
+
+### Component
+
+```typescript
+// ...
+export class ProductListComponent {
+   // ...
+    showImage: boolean = false;
+   
+    // ...
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+}
+// ...
+```
