@@ -286,3 +286,38 @@ export class ProductListComponent {
 }
 // ...
 ```
+
+### Two-way Binding
+
+#### Banana in a box
+
+[()] <-- Means type and event binding at the same time.
+
+```typescript
+export class ProductListComponent {
+  // ...
+  listFilter: string = 'cart';
+  // ...    
+}
+```
+
+```html
+<input type="text" [(ngModel)]='listFilter'>
+```
+
+## Pipes
+
+> Transform bound properties before display.
+
+- date
+- number, decimal, percent, currency, ...
+- json, slice
+- custom
+
+```html
+<td>{{product.productName | uppercase}}</td>
+<td>{{product.productCode | lowercase}}</td>
+<td>{{product.releaseDate}}</td>
+<td>{{product.price | currency:'EUR':true:'1.2-2'}}</td>
+<td>{{product.starRating}}</td>
+```
