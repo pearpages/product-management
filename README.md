@@ -213,3 +213,23 @@ export class AppComponent {
   <tbody></tbody>
 </table>
 ```
+
+```typescript
+// the hash # makes the product variable a local variable of the loop
+<tr *ngFor='#product of products'>
+    <td></td>
+    <td>{{product.productName}}</td>
+    <td>{{product.productCode}}</td>
+    <td>{{product.releaseDate}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.starRating}}</td>
+</tr>
+```
+
+### for...of
+
+- Iterates over iterable objects, such as an array.
+
+### for...in
+
+- Iterates over the properties of an object.
