@@ -233,3 +233,14 @@ export class AppComponent {
 ### for...in
 
 - Iterates over the properties of an object.
+
+## Property Binding vs Interpolation
+
+```html
+<img [src]='product.imageUrl'>
+
+<!-- Interpolation -->
+<img src="{{product.imageUrl}}" >
+<img src="http://openclipart.org/{{product.imageUrl}}">
+```
+
