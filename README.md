@@ -493,3 +493,105 @@ onRatingClicked(message: string):void {
     this.pageTitle = 'Product List: ' + message;
 }
 ```
+
+## Services and Dependency Injection
+
+> A Service is a class with a focused purpose.
+
+Used for features that:
+
+- Are independent from any particular component
+- Provide shared data or logic across components
+- Encapsulate external interactions
+
+### Dependency Injection
+
+> A coding patterin in which a class receives the instances of objects it needs (called dependencies) from an external source rather than creating them itself.
+
+### Building a Service
+
+1. Create the service class
+2. Define the metadata with a decorator
+3. Import what we need
+
+### Register a service
+
+1. Register a provider
+  - Code that can create or return a service, typically te service class itself.
+2. Define as part of the component metadata
+3. Injectable to component AND any of its children
+
+```typescript
+import {Component} from 'angular2/core';
+import {ProductListComponent} from './products/product-list.component'
+import {ProductService} from './products/product.service';
+
+@Component({
+    selector: 'pm-app',
+    template: `
+    <div><h1>{{pageTitle}}</h1>
+        <pm-products></pm-products>
+    </div>
+    `,
+    directives: [ProductListComponent],
+    providers: [ProductService]
+})
+export class AppComponent {
+    pageTitle: string = 'Product Management';
+}
+```
+
+```typescript
+import { Injectable } from 'angular2/core';
+import { IProduct } from './product';
+
+@Injectable()
+export class ProductService {
+    
+    getProducts(): IProduct[] {
+        return [
+          // ...
+        ];
+    }
+}
+```
+
+```typescript
+import {Component,OnInit} from 'angular2/core';
+import {IProduct} from './product';
+import {ProductFilterPipe} from './product-filter.pipe';
+import {StarComponent} from '../shared/star.component';
+import {ProductService} from './product.service';
+
+@Component({
+    selector: 'pm-products',
+    templateUrl: 'app/products/product-list.component.html',
+    styleUrls: ['app/products/product-list.component.css'],
+    pipes: [ProductFilterPipe],
+    directives: [StarComponent]
+})
+export class ProductListComponent implements OnInit{
+    pageTitle: string = 'Product List';
+    imageWidth: number = 50;
+    imageMargin: number = 2;
+    showImage: boolean = false;
+    listFilter: string = null;
+    products: IProduct[] = null;
+    
+    constructor(private _productService: ProductService) {
+        
+    }
+    
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+    }
+    
+    ngOnInit(): void {
+        this.products = this._productService.getProducts();
+    }
+    
+    onRatingClicked(message: string):void {
+        this.pageTitle = 'Product List: ' + message;
+    }
+}
+```
