@@ -244,3 +244,16 @@ export class AppComponent {
 <img src="http://openclipart.org/{{product.imageUrl}}">
 ```
 
+```typescript
+// ...
+export class ProductListComponent {
+    pageTitle: string = 'Product List';
+    imageWidth: number = 50;
+    imageMargin: number = 2;
+// ...    
+```
+
+```html
+<td><img [src]="product.imageUrl" [title]="product.productName" [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+```
+
