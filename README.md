@@ -438,5 +438,58 @@ export class ProductListComponent implements OnInit {
 
 ### Input Properties
 
+- Attached to a property of any type
+- Prefix with @; Suffix with ()
+
+```typescript
+@Input() rating: number;
+```
+
+```html
+<ai-star [rating]='product.starRating'></ai-star>
+```
+
 ### Output Event
 
+- Attached to a property declared as an EventEmitter
+- Use the generic argument to define the event payload type
+- Use the new keyword to create an instance of the *EventEmitter*
+
+```html
+<div class="crop"
+[style.width.px]="starWidth"
+[title]="rating"
+(click)='onClick()'>
+```
+
+```typescript
+import {Component,OnChanges,Input,Output,EventEmitter} from 'angular2/core';
+
+@Component({
+    selector: 'ai-star',
+    templateUrl: 'app/shared/star.component.html',
+    styleUrls: ['app/shared/star.component.css']
+})
+export class StarComponent implements OnChanges {
+    @Input() rating: number;
+    starWidth: number;
+    @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
+    
+    ngOnChanges(): void {
+        this.starWidth = this.rating * 86 / 5;
+    }
+    onClick() {
+        this.ratingClicked.emit(`The rating ${this.rating} was clicked!`);
+    }
+}
+```
+
+```html
+<td><ai-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></ai-star></td>
+```
+
+```typescript
+onRatingClicked(message: string):void {
+    this.pageTitle = 'Product List: ' + message;
+}
+```
