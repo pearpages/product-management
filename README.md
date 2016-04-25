@@ -322,6 +322,41 @@ export class ProductListComponent {
 <td>{{product.starRating}}</td>
 ```
 
+### Writing a custom Pipe
+
+```typescript
+@Pipe({
+  name: 'productFilter'
+})
+export class ProductFilterPipe implements PipeTransform {
+  
+  transform(value: IProduct[], args: string[]): IProduct[] {}
+}
+```
+
+```html
+<tr *ngFor = '#product of products | productFilter:listFilter'>
+```
+
+```typescript
+import {PipeTransform,Pipe} from 'angular2/core';
+import {IProduct} from './product';
+
+@Pipe({
+    name: 'productFilter'
+})
+export class ProductFilterPipe implements PipeTransform {
+
+    transform(value: IProduct[], args: string[]): IProduct[] {
+        let filter: string = args[0] ? args[0].toLocaleLowerCase() : null;
+        
+        // Array.filter() method
+        return filter ? value.filter((product: IProduct) => 
+            product.productName.toLocaleLowerCase().indexOf(filter) != -1): value;
+    }    
+}
+```
+
 ## Interface
 
 > A **specification** identifying a related set of properties and methods.
@@ -362,4 +397,38 @@ If we don't need any methods we don't have the need a creating a **class** and w
     templateUrl: 'app/products/product-list.component.html',
     styleUrls: ['app/products/product-list.component.css']
 })
+```
+
+## Component Lifecycle / Using a Lifecycle Hook
+
+1. Create
+2. Render
+3. Create and render children
+4. Process changes
+5. Destroy
+
+## OnInit
+
+Perform component initialization, retrieve data.
+
+## OnChanges
+
+Perform action after change to input properties.
+
+## OnDestroy
+
+Perform cleanup.
+
+```typescript
+import { OnInit } from 'angular2/core';
+
+export class ProductListComponent implements OnInit {
+  // ...
+  
+  ngOnInit(): void {
+    console.log('In OnInit');
+  }
+  
+  // ...
+}
 ```
