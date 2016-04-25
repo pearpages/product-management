@@ -207,3 +207,9 @@ export class AppComponent {
 - Custom
 - Built-in (*ngIf, *ngFor)
 
+```typescript
+<table *ngIf='products.length'>
+  <thead></thead>
+  <tbody></tbody>
+</table>
+```
