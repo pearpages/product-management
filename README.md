@@ -433,3 +433,10 @@ export class ProductListComponent implements OnInit {
   // ...
 }
 ```
+
+## Nested Components
+
+### Input Properties
+
+### Output Event
+
