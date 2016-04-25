@@ -321,3 +321,45 @@ export class ProductListComponent {
 <td>{{product.price | currency:'EUR':true:'1.2-2'}}</td>
 <td>{{product.starRating}}</td>
 ```
+
+## Interface
+
+> A **specification** identifying a related set of properties and methods.
+
+> A class commits to supporting the specification by **implementing** the interface.
+
+> Use the interface as a **data type**.
+
+```typescript
+export interface IProduct {
+  productId: number;
+  productName: string;
+  productCode: string;
+  releaseDate: Date;
+  price: number;
+  description: string;
+  starRating: number;
+  imageUrl: string;
+  calculateDiscount(percent: number): number;
+}
+```
+
+```typescript
+import { IProduct } from './product';
+
+export class ProductListComponent {
+  products: IProduct[] = [];
+}
+```
+
+If we don't need any methods we don't have the need a creating a **class** and we use an **interface** instead.
+
+## Encapsulating component Styles
+
+```typescript
+@Component({
+    selector: 'pm-products',
+    templateUrl: 'app/products/product-list.component.html',
+    styleUrls: ['app/products/product-list.component.css']
+})
+```
