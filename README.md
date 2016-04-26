@@ -595,3 +595,26 @@ export class ProductListComponent implements OnInit{
     }
 }
 ```
+
+## Retrieving Data Using Http
+
+- Observables and Reactive Extensions
+- Subscribing to an Observable
+
+- An array whose items arrive asynchronously over time
+- Helps manage asynchronous data
+- Proposed feature for ES 2016
+- Use Reactive Extensions (RxJS)
+- Used within Angular
+
+An Observable works like an Array, so we can use the *map* method. We use an arrow function.
+
+[Explanation](http://rxmarbles.com)
+
+### Promise vs Observable
+
+|Promise|Observable|
+|:--|:--|
+|Returns a single value|Works with multiple values over time|
+|Not cancellable|Cancellable|
+||Supports map, filter, reduce and similar operators|
