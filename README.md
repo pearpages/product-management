@@ -624,7 +624,7 @@ An Observable works like an Array, so we can use the *map* method. We use an arr
 ### Setting Up
 
 - Include the Angular 2 Http script
-- Register HTTP_PROVIDERS
+- Register HTTP_PROVIDERS (at the appropiate level)
 - Import RxJS
 
 ```html
@@ -642,6 +642,24 @@ import 'rxjs/Rx'; // Load all features
     providers: [HTTP_PROVIDERS]
 })
 ```
+
+#### In the Service
+
+- Import what we need
+- Define a dependency for the http client service
+  - Use a constructor parameter
+- Create a method for each http request
+- Call the desired http method, such as get
+  - Pass in the Url
+- Map the Http response to a JSON object
+- Add error handling
+
+#### In the Subscribing
+
+- Call the subscribe method of the returned observable
+- Provide a function to handle an emitted item
+  - Normally assigns a property to the returned JSON object
+- Provide an error function to handle any returned errors
 
 ### Sending an Http Request
 
