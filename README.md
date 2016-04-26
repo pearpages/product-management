@@ -598,6 +598,8 @@ export class ProductListComponent implements OnInit{
 
 ## Retrieving Data Using Http
 
+- Setting up
+- Sending an Http Request
 - Observables and Reactive Extensions
 - Subscribing to an Observable
 
@@ -638,4 +640,22 @@ import 'rxjs/Rx'; // Load all features
     // ...
     providers: [HTTP_PROVIDERS]
 })
+```
+
+### Sending an Http Request
+
+```typescript
+import {Http, Response} from 'angular2/http';
+import {Observable} from 'rxjs/Observable'
+
+@Injectable()
+export class ProductService {
+    private _productUrl = 'www.myWebService.com/api/products';
+    constructor(private _http: Http) {}
+    
+    getProducts(): Observable<IProduct[]> {
+        return this._http.get(this._productUrl)
+            .map((response: Response => <IProuct[]>response.json()); 
+    }
+}
 ```
