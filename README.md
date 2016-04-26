@@ -618,3 +618,24 @@ An Observable works like an Array, so we can use the *map* method. We use an arr
 |Returns a single value|Works with multiple values over time|
 |Not cancellable|Cancellable|
 ||Supports map, filter, reduce and similar operators|
+
+### Setting Up
+
+- Include the Angular 2 Http script
+- Register HTTP_PROVIDERS
+- Import RxJS
+
+```html
+<!-- HTTP -->
+<script src="node_modules/angular2/bundles/http.dev.js"></script>
+```
+
+```typescript
+import {HTTP_PROVIDERS} from 'angular2/core';
+import 'rxjs/Rx'; // Load all features
+
+@Component({
+    // ...
+    providers: [HTTP_PROVIDERS]
+})
+```
