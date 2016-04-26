@@ -780,6 +780,11 @@ import {WelcomeComponent} from './home/welcome.component';
 ```
 
 ### Placing the Views
+
+```html
+<router-outlet></router-outlet>
+```
+
 ### Passing Parameters to a Route
 ### Activating a Route with Code
 
