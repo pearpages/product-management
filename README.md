@@ -785,6 +785,103 @@ import {WelcomeComponent} from './home/welcome.component';
 <router-outlet></router-outlet>
 ```
 
+```typescript
+import {Component} from 'angular2/core';
+import {ProductListComponent} from './products/product-list.component'
+import {ProductHttpService} from './products/product-http.service';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import 'rxjs/Rx'; // Load all features
+import {ROUTER_PROVIDERS,ROUTER_DIRECTIVES,RouteConfig} from 'angular2/router';
+import {WelcomeComponent} from './home/welcome.component';
+
+@Component({
+    selector: 'pm-app',
+    template: `
+    <div>
+        <nav class='navbar navbar-default'>
+            <div class='container-fluid'>
+                <a class='navbar-brand'>{{pageTitle}}</a>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['Welcome']">Home</a></li>
+                    <li><a [routerLink]="['Products']">Product List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    `,
+    directives: [ROUTER_DIRECTIVES],
+    providers: [ProductHttpService,
+    HTTP_PROVIDERS,
+    ROUTER_PROVIDERS]
+})
+@RouteConfig([
+    {path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true},
+    {path: '/products', name: 'Products', component: ProductListComponent}
+])
+export class AppComponent {
+    pageTitle: string = 'Product Management';
+}
+```
+
 ### Passing Parameters to a Route
+
+```typescript
+// app.component
+{path: '/product/:id', name: 'ProductDetail', component: ProductDetailComponent}
+```
+
+```typescript
+// component with the link
+import {ROUTER_DIRECTIVES} from 'angular2/router';
+
+@Component({
+    selector: 'pm-products',
+    templateUrl: 'app/products/product-list.component.html',
+    styleUrls: ['app/products/product-list.component.css'],
+    pipes: [ProductFilterPipe],
+    directives: [StarComponent,ROUTER_DIRECTIVES]
+})
+```
+
+```html
+<!-- link -->
+<td>
+    <a [routerLink]="['ProductDetail',{id: product.productId}]">
+        {{product.productName}}
+    </a>
+</td>
+```
+
+```typescript
+// some other component where we use the parameter
+import {RouteParams} from 'angular2/router';
+
+// ...
+constructor(private _routeParams: RouteParams) {
+    console.log(this._routeParams.get('id'));
+}
+```
+
+Complete example in the Component that uses the url parameter
+
+```typescript
+import {Component} from 'angular2/core';
+import {RouteParams} from 'angular2/router';
+
+@Component({
+    templateUrl: 'app/products/product-detail.component.html'
+})
+export class ProductDetailComponent {
+    pageTitle: string = 'Product Detail';
+    constructor(private _routeParams: RouteParams) {
+        let id = +this._routeParams.get('id');
+        this.pageTitle += `: ${id}`;
+    }
+}
+```
+
 ### Activating a Route with Code
 

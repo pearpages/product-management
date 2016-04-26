@@ -5,6 +5,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import 'rxjs/Rx'; // Load all features
 import {ROUTER_PROVIDERS,ROUTER_DIRECTIVES,RouteConfig} from 'angular2/router';
 import {WelcomeComponent} from './home/welcome.component';
+import {ProductDetailComponent} from './products/product-detail.component';
 
 @Component({
     selector: 'pm-app',
@@ -31,7 +32,8 @@ import {WelcomeComponent} from './home/welcome.component';
 })
 @RouteConfig([
     {path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true},
-    {path: '/products', name: 'Products', component: ProductListComponent}
+    {path: '/products', name: 'Products', component: ProductListComponent},
+    {path: '/product/:id', name: 'ProductDetail', component: ProductDetailComponent}
 ])
 export class AppComponent {
     pageTitle: string = 'Product Management';
