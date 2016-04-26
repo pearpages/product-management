@@ -749,6 +749,36 @@ The name must be in *PascalCase*.
 ```
 
 ### Trying Routes to Actions
+
+- Menu option, link, image or button that activates a route
+- Typing the Url in the address bar / bookmark
+- The browser's forward or back buttons
+
+```typescript
+// ...
+import {ROUTER_PROVIDERS,RouteConfig} from 'angular2/router';
+import {WelcomeComponent} from './home/welcome.component';
+
+@Component({
+    selector: 'pm-app',
+    template: `
+    <ul class='nav navbar-nav'>
+        <li><a>Home</a></li>
+        <li><a>Product List</a></li>
+    </ul>
+    `,
+    directives: [ProductListComponent],
+    providers: [ProductHttpService,
+    HTTP_PROVIDERS,
+    ROUTER_PROVIDERS]
+})
+@RouteConfig([
+    {path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true},
+    {path: '/products', name: 'Products', component: ProductListComponent}
+])
+// ...
+```
+
 ### Placing the Views
 ### Passing Parameters to a Route
 ### Activating a Route with Code
