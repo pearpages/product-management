@@ -703,3 +703,53 @@ ngOnInit(): void {
         );
 }
 ```
+
+## Navigation and Routing
+
+- Configure a route for each component
+- Define options/actions
+- Tie a route to each option/action
+- Activate the route based on user action
+- Activating a route displays the component's view
+
+### Setting Up
+
+1. Include the Angular 2 router script
+2. Define the base element
+3. Register ROUTER_PROVIDERS
+
+```html
+<base href="/">
+<!-- Required for routing -->
+<script src="node_modules/angular2/bundles/router.dev.js"></script>
+```
+
+```typescript
+import {ROUTER_PROVIDERS,RouteConfig} from 'angular2/router';
+
+@Component({
+    // ...
+    providers: [ROUTER_PROVIDERS]
+})
+```
+
+### Configuring Routes
+
+- a route name
+- a URL segment
+- an associated component
+
+The name must be in *PascalCase*.
+
+```typescript
+@RouteConfig([
+    {path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true},
+    {path: '/products', name: 'Products', component: ProductListComponent}
+])
+```
+
+### Trying Routes to Actions
+### Placing the Views
+### Passing Parameters to a Route
+### Activating a Route with Code
+
