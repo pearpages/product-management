@@ -2,7 +2,7 @@ import {Component,OnInit} from 'angular2/core';
 import {IProduct} from './product';
 import {ProductFilterPipe} from './product-filter.pipe';
 import {StarComponent} from '../shared/star.component';
-import {ProductService} from './product.service';
+import {ProductHttpService} from './product-http.service';
 
 @Component({
     selector: 'pm-products',
@@ -18,8 +18,9 @@ export class ProductListComponent implements OnInit{
     showImage: boolean = false;
     listFilter: string = null;
     products: IProduct[] = null;
+    errorMessage: string = null;
     
-    constructor(private _productService: ProductService) {
+    constructor(private _productService: ProductHttpService) {
         
     }
     
@@ -28,7 +29,11 @@ export class ProductListComponent implements OnInit{
     }
     
     ngOnInit(): void {
-        this.products = this._productService.getProducts();
+         this._productService.getProducts()
+        .subscribe(
+            products => this.products = products,
+            error => this.errorMessage = <any>error
+        );
     }
     
     onRatingClicked(message: string):void {

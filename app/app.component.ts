@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
 import {ProductListComponent} from './products/product-list.component'
-import {ProductService} from './products/product.service';
+import {ProductHttpService} from './products/product-http.service';
+import {HTTP_PROVIDERS} from 'angular2/http';
+import 'rxjs/Rx'; // Load all features
 
 @Component({
     selector: 'pm-app',
@@ -10,7 +12,7 @@ import {ProductService} from './products/product.service';
     </div>
     `,
     directives: [ProductListComponent],
-    providers: [ProductService]
+    providers: [ProductHttpService,HTTP_PROVIDERS]
 })
 export class AppComponent {
     pageTitle: string = 'Product Management';

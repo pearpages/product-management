@@ -633,7 +633,8 @@ An Observable works like an Array, so we can use the *map* method. We use an arr
 ```
 
 ```typescript
-import {HTTP_PROVIDERS} from 'angular2/core';
+// add the level required e.g.: app.component
+import {HTTP_PROVIDERS} from 'angular2/http';
 import 'rxjs/Rx'; // Load all features
 
 @Component({
@@ -657,5 +658,30 @@ export class ProductService {
         return this._http.get(this._productUrl)
             .map((response: Response => <IProuct[]>response.json()); 
     }
+}
+```
+
+### Handling Errors
+
+```typescript
+getProduts(): Observable<IProduct[]> {
+    return this._http.get(this._productUrl)
+        .map((response: Response) => <IProduct[]>response.json())
+        .do(data => console.log('All: ' + JSON.stringify(data)))
+        .catch(this.handleError);
+}
+
+private handleError(error: Response) {}
+```
+
+### Subscribing to an Observable
+
+```typescript
+ngOnInit(): void {
+    this._productService.getProducts()
+        .subscribe(
+            products => this.products = products,
+            error => this.errorMessage = <any>error);
+        );
 }
 ```
