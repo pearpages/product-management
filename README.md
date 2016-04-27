@@ -898,3 +898,11 @@ onBack(): void {
 
 // ...
 ```
+
+## Angular2 Setup Revisited
+
+### tsconfig.json
+
+### package.json
+
+### index.html
