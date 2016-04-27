@@ -885,3 +885,16 @@ export class ProductDetailComponent {
 
 ### Activating a Route with Code
 
+```typescript
+import {Router} from 'angular2/router';
+
+// ...
+
+constructor(private _router: Router) {}
+
+onBack(): void {
+    this._router.navigate(['Products']);
+}
+
+// ...
+```
