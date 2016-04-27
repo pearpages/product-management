@@ -935,4 +935,41 @@ Typescript configuration file. Indicates that the folder where it is contained i
 
 ### package.json
 
+- scripts
+- dependencies
+- devDependencies
+
+#### scripts
+
+E.g.
+
+```bash
+npm start # doesn't need the run command
+npm run tsc
+npm run lite
+npm run lite # lite-server is specifically written for Angular2
+```
+
+#### Dependencies
+
+If we want to install only the *dependencies* and not the *devdependcies* we can use: ```npm install --production```.
+
 ### index.html
+
+- router.dev.js
+- http.dev.js
+- system.src.js
+- Rx.js
+- angular2.dev.js
+
+#### Polyfills
+
+We add ES5 code so we can support the ES2015 syntax.
+
+> In web development, a polyfill (or polyfiller) is additional code which provides facilities that are not built into a web browser. It implements technology that a developer expects the browser to provide natively, providing a more uniform API landscape.
+
+#### Shim
+
+It lets us use an API to an older environment.
+
+> In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere.
