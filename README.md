@@ -903,6 +903,36 @@ onBack(): void {
 
 ### tsconfig.json
 
+Typescript configuration file. Indicates that the folder where it is contained is the root folder.
+
+```json
+// these are needed so Angular2 can compile
+"emitDecoratorMetadata": true,
+"experimentalDecorators": true,
+```
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false // if set to true we strongly type
+  },
+  "exclude": [
+    "node_modules",
+    // we ignore typings/main because these are for node
+    // this also mean that we are compiling typings/browser
+    "typings/main",
+    "typings/main.d.ts"
+  ]
+}
+```
+
 ### package.json
 
 ### index.html
