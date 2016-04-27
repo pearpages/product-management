@@ -973,3 +973,11 @@ We add ES5 code so we can support the ES2015 syntax.
 It lets us use an API to an older environment.
 
 > In computer programming, a shim is a small library that transparently intercepts API calls and changes the arguments passed, handles the operation itself, or redirects the operation elsewhere.
+
+## More
+
+- Material Design
+- Angular Universal
+- Web Workers
+- Ionic
+- Nativescript
