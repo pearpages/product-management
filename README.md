@@ -1,10 +1,26 @@
-## Topics
+## Intro
+
+### Topics
 
 - Components
 - Templates, Data Bindings, and Directives
 - Services and Dependency Injection
 - Http and Observables
 - Navigation and Routing
+
+### Why Angular
+
+- Expressive HTML
+- Powerful Data Binding
+- Modular by Design
+- Built-in Back-End Integration
+
+Angular 2
+
+- Built for Speed
+- Modern (Classes, Decorators, ...)
+- Simplified API
+- Enhances Productivity
 
 ## Component
 
