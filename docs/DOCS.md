@@ -4,8 +4,9 @@
 
 ### Topics
 
-- Components
+- Components and Nested Components
 - Templates, Data Bindings, and Directives
+- Pipes
 - Services and Dependency Injection
 - Http and Observables
 - Navigation and Routing
@@ -33,34 +34,6 @@ Application = Component + Component + Component + ... + Services
 ```
 Component = Template + Class (Properties + Methods) + Metadata
 ```
-
-## Application Arhictecture
-
-- App Component
-  - Product Data Service
-  - Welcome Component
-  - Product List Component
-    - Star Component
-  - Product Detail Component
-    - Star Component
-
-## Concepts
-
-- Components
-  - Nested Components
-- Templates, Interpolation, and Directives
-- Data Binding & Pipes
-- Services and Dependency Injection
-- Retrieving Data Using Http
-- Navigation and Routing
-
-## Javascript Language Specification
-
-- ECMAScript (ES)
-- ES 3
-- ES 5
-- ES 2015 (formerly known as ES6)
-  - Must be transpiled
 
 ## Typescript
 
