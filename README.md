@@ -25,7 +25,11 @@ Angular 2
 ## Component
 
 ```
-Component = Template + Class + Metadata
+Application = Component + Component + Component + ... + Services
+```
+
+```
+Component = Template + Class (Properties + Methods) + Metadata
 ```
 
 ## Application Arhictecture
