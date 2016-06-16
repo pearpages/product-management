@@ -1,3 +1,5 @@
+[Go back to docs](DOCS.md)
+
 # Setting up the Environemnt
 
 It is a bit laborious.
@@ -8,3 +10,9 @@ It is a bit laborious.
 4. Install the **libraries** and **typings**
 5. Create the host Web page (*index.html*)
 6. Create the *main.ts* file (*bootstrapper)*
+
+## angular-cli
+
+- [angyular-cli](https://cli.angular.io/)
+- [GitHub for angular-cli](https://github.com/angular/angular-cli)
+
